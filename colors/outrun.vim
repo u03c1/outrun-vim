@@ -2,7 +2,7 @@
 " Author:      Raphael DB (https://github.com/u03c1)
 " Webpage:     https://github.com/u03c1/outrun-vim
 " Description: A dark theme, with some retrowave accent.
-" Last Change: 2021-11-15
+" Last Change: 2021-11-16
 
 hi clear
 
@@ -79,7 +79,7 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
     hi qfLineNr ctermbg=NONE ctermfg=3 cterm=NONE guibg=NONE guifg=#D9C8B3 gui=NONE
     hi Boolean ctermbg=NONE ctermfg=5 cterm=NONE guibg=NONE guifg=#C3C1FE gui=NONE
     hi Builtin ctermbg=NONE ctermfg=5 cterm=NONE guibg=NONE guifg=#C3C1FE gui=NONE
-    hi Conditionnal ctermbg=NONE ctermfg=9 cterm=NONE guibg=NONE guifg=#d982b6 gui=NONE
+    hi Conditional ctermbg=NONE ctermfg=9 cterm=NONE guibg=NONE guifg=#d982b6 gui=NONE
     hi Function ctermbg=NONE ctermfg=15 cterm=NONE guibg=NONE guifg=#DADAEA gui=NONE
     hi Repeat ctermbg=NONE ctermfg=9 cterm=NONE guibg=NONE guifg=#d982b6 gui=NONE
     hi Structure ctermbg=NONE ctermfg=14 cterm=NONE guibg=NONE guifg=#9ae1e3 gui=NONE
@@ -181,7 +181,7 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
     hi qfLineNr ctermbg=NONE ctermfg=darkyellow cterm=NONE
     hi Boolean ctermbg=NONE ctermfg=darkmagenta cterm=NONE
     hi Builtin ctermbg=NONE ctermfg=darkmagenta cterm=NONE
-    hi Conditionnal ctermbg=NONE ctermfg=red cterm=NONE
+    hi Conditional ctermbg=NONE ctermfg=red cterm=NONE
     hi Function ctermbg=NONE ctermfg=white cterm=NONE
     hi Repeat ctermbg=NONE ctermfg=red cterm=NONE
     hi Structure ctermbg=NONE ctermfg=cyan cterm=NONE
@@ -229,11 +229,13 @@ hi link SignifySignChange DiffChange
 hi link SignifySignDelete DiffDelete
 hi link diffAdded DiffAdd
 hi link diffRemoved DiffDelete
+hi link cConditional Conditional
+hi link cStatement showReturn
 hi link phpClasses Function
 hi link phpComment Doc
 hi link phpCommentStar Doc
 hi link phpCommentTitle Doc
-hi link phpConditional Conditionnal
+hi link phpConditional Conditional
 hi link phpDefine normal
 hi link phpDocComment Doc
 hi link phpDocIdentifier Doc
@@ -249,20 +251,20 @@ hi link htmlEndTag Tags
 hi link htmlString String
 hi link htmlTag Tags
 hi link htmlTagName Tags
-hi link twigStatement Conditionnal
+hi link twigStatement Conditional
 hi link twigString String
 hi link rubyComment Comment
 hi link djangoStatement Structure
 hi link pythonClass Normal
-hi link pythonConditional Conditionnal
+hi link pythonConditional Conditional
 hi link pythonException showReturn
 hi link pythonStatement Structure
-hi link javascriptConditional Conditionnal
+hi link javascriptConditional Conditional
 hi link javascriptNumber Number
 hi link javascriptStatement showReturn
 hi link jsFunction function
 hi link TSBoolean Boolean
-hi link TSConditional Conditionnal
+hi link TSConditional Conditional
 hi link TSConstBuiltin Builtin
 hi link TSConstMacro Normal
 hi link TSConstant Constant

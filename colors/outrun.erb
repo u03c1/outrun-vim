@@ -211,7 +211,7 @@
         # Code alias
         [ "Boolean", "NONE", darkmagenta, "NONE" ],
         [ "Builtin", "NONE", darkmagenta, "NONE" ],
-        [ "Conditionnal", "NONE", pink, "NONE" ],
+        [ "Conditional", "NONE", pink, "NONE" ],
         [ "Doc", "Comment"],
         [ "Function", "NONE", white, "NONE" ],
         [ "Repeat", "NONE",pink, "NONE" ],
@@ -263,12 +263,16 @@
         # IlluminateWord
         [ "illuminatedWord", gray239, "NONE", "NONE"],
 
+        # C
+        [ "cConditional", "Conditional"],
+        [ "cStatement", "showReturn"],
+
         # PHP
         [ "phpClasses", "Function"],
         [ "phpComment", "Doc"],
         [ "phpCommentStar", "Doc"],
         [ "phpCommentTitle", "Doc"],
-        [ "phpConditional", "Conditionnal"],
+        [ "phpConditional", "Conditional"],
         [ "phpDefine", "normal"],
         [ "phpDocComment", "Doc"],
         [ "phpDocIdentifier", "Doc"],
@@ -291,7 +295,7 @@
         [ "htmlTagName", "Tags"],
 
         # TWIG
-        [ "twigStatement", "Conditionnal"],
+        [ "twigStatement", "Conditional"],
         [ "twigString", "String"],
 
         # RUBY
@@ -300,19 +304,19 @@
         # PYTHON/DJANGO
         [ "djangoStatement", "Structure"],
         [ "pythonClass", "Normal" ],
-        [ "pythonConditional", "Conditionnal"],
+        [ "pythonConditional", "Conditional"],
         [ "pythonException", "showReturn"],
         [ "pythonStatement", "Structure"],
 
         # JS
-        [ "javascriptConditional", "Conditionnal"],
+        [ "javascriptConditional", "Conditional"],
         [ "javascriptNumber", "Number"],
         [ "javascriptStatement", "showReturn"],
         [ "jsFunction", "function"],
 
         # TREESITTER
         [ "TSBoolean", "Boolean"],
-        [ "TSConditional", "Conditionnal"],
+        [ "TSConditional", "Conditional"],
         [ "TSConstBuiltin", "Builtin"],
         [ "TSConstMacro", "Normal"],
         [ "TSConstant", "Constant"],
