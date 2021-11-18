@@ -2,7 +2,7 @@
 " Author:      Raphael DB (https://github.com/u03c1)
 " Webpage:     https://github.com/u03c1/outrun-vim
 " Description: A dark theme, with some retrowave accent.
-" Last Change: 2021-11-16
+" Last Change: 2021-11-18
 
 hi clear
 
@@ -19,8 +19,8 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
     hi Constant ctermbg=NONE ctermfg=10 cterm=NONE guibg=NONE guifg=#b8dfb2 gui=NONE
     hi Error ctermbg=0 ctermfg=1 cterm=NONE guibg=#242A33 guifg=#d98282 gui=NONE
     hi Identifier ctermbg=NONE ctermfg=15 cterm=NONE guibg=NONE guifg=#DADAEA gui=NONE
-    hi Ignore ctermbg=0 ctermfg=15 cterm=NONE guibg=#242A33 guifg=#DADAEA gui=NONE
-    hi PreProc ctermbg=0 ctermfg=15 cterm=NONE guibg=#242A33 guifg=#DADAEA gui=NONE
+    hi Ignore ctermbg=NONE ctermfg=15 cterm=NONE guibg=NONE guifg=#DADAEA gui=NONE
+    hi PreProc ctermbg=NONE ctermfg=15 cterm=NONE guibg=NONE guifg=#DADAEA gui=NONE
     hi Special ctermbg=NONE ctermfg=15 cterm=NONE guibg=NONE guifg=#DADAEA gui=NONE
     hi Statement ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
     hi String ctermbg=NONE ctermfg=12 cterm=NONE guibg=NONE guifg=#b0daf6 gui=NONE
@@ -76,6 +76,7 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
     hi ToolbarButton ctermbg=0 ctermfg=15 cterm=NONE guibg=#242A33 guifg=#DADAEA gui=NONE
     hi debugPC ctermbg=0 ctermfg=15 cterm=NONE guibg=#242A33 guifg=#DADAEA gui=NONE
     hi debugBreakpoint ctermbg=1 ctermfg=15 cterm=NONE guibg=#d98282 guifg=#DADAEA gui=NONE
+    hi Foreground ctermbg=NONE ctermfg=15 cterm=NONE guibg=NONE guifg=#DADAEA gui=NONE
     hi qfLineNr ctermbg=NONE ctermfg=3 cterm=NONE guibg=NONE guifg=#D9C8B3 gui=NONE
     hi Boolean ctermbg=NONE ctermfg=5 cterm=NONE guibg=NONE guifg=#C3C1FE gui=NONE
     hi Builtin ctermbg=NONE ctermfg=5 cterm=NONE guibg=NONE guifg=#C3C1FE gui=NONE
@@ -121,8 +122,8 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
     hi Constant ctermbg=NONE ctermfg=green cterm=NONE
     hi Error ctermbg=black ctermfg=darkred cterm=NONE
     hi Identifier ctermbg=NONE ctermfg=white cterm=NONE
-    hi Ignore ctermbg=black ctermfg=white cterm=NONE
-    hi PreProc ctermbg=black ctermfg=white cterm=NONE
+    hi Ignore ctermbg=NONE ctermfg=white cterm=NONE
+    hi PreProc ctermbg=NONE ctermfg=white cterm=NONE
     hi Special ctermbg=NONE ctermfg=white cterm=NONE
     hi Statement ctermbg=NONE ctermfg=NONE cterm=NONE
     hi String ctermbg=NONE ctermfg=blue cterm=NONE
@@ -178,6 +179,7 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
     hi ToolbarButton ctermbg=black ctermfg=white cterm=NONE
     hi debugPC ctermbg=black ctermfg=white cterm=NONE
     hi debugBreakpoint ctermbg=darkred ctermfg=white cterm=NONE
+    hi Foreground ctermbg=NONE ctermfg=white cterm=NONE
     hi qfLineNr ctermbg=NONE ctermfg=darkyellow cterm=NONE
     hi Boolean ctermbg=NONE ctermfg=darkmagenta cterm=NONE
     hi Builtin ctermbg=NONE ctermfg=darkmagenta cterm=NONE
@@ -243,7 +245,7 @@ hi link phpDocParam Doc
 hi link phpDocTags Doc
 hi link phpException showReturn
 hi link phpKeyword Structure
-hi link phpMemberSelector Normal
+hi link phpMemberSelector Foreground
 hi link phpRepeat Repeat
 hi link phpStatement showReturn
 hi link phpType Type
@@ -255,7 +257,7 @@ hi link twigStatement Conditional
 hi link twigString String
 hi link rubyComment Comment
 hi link djangoStatement Structure
-hi link pythonClass Normal
+hi link pythonClass Foreground
 hi link pythonConditional Conditional
 hi link pythonException showReturn
 hi link pythonStatement Structure
@@ -266,27 +268,27 @@ hi link jsFunction function
 hi link TSBoolean Boolean
 hi link TSConditional Conditional
 hi link TSConstBuiltin Builtin
-hi link TSConstMacro Normal
+hi link TSConstMacro Foreground
 hi link TSConstant Constant
-hi link TSConstructor Normal
+hi link TSConstructor Foreground
 hi link TSException showReturn
-hi link TSFuncBuiltin Normal
+hi link TSFuncBuiltin Foreground
 hi link TSFunction Function
-hi link TSInclude Normal
-hi link TSKeyword Normal
-hi link TSKeywordFunction Normal
+hi link TSInclude Foreground
+hi link TSKeyword Foreground
+hi link TSKeywordFunction Foreground
 hi link TSKeywordOperator Repeat
 hi link TSKeywordReturn showReturn
-hi link TSMethod Normal
-hi link TSOperator Normal
-hi link TSParameter Normal
-hi link TSProperty Normal
+hi link TSMethod Foreground
+hi link TSOperator Foreground
+hi link TSParameter Foreground
+hi link TSProperty Foreground
 hi link TSRepeat Repeat
 hi link TSString string
-hi link TSType Normal
-hi link TSTypeBuiltin Normal
-hi link TSVariable Normal
-hi link TSVariableBuiltin Normal
+hi link TSType Foreground
+hi link TSTypeBuiltin Foreground
+hi link TSVariable Foreground
+hi link TSVariableBuiltin Foreground
 hi link TScomment Doc
 hi link commentTSConstant Doc
 
