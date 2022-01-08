@@ -41,7 +41,7 @@
     # The description should fit in a single line with no linefeed.
     information = {
         author:      "Raphael DB",
-        email: "https://github.com/u03c1",
+        email:       "https://github.com/u03c1",
         name:        "Outrun",
         description: "A dark theme, with some retrowave accent.",
         webpage:     "https://github.com/u03c1/outrun-vim"
@@ -94,6 +94,18 @@
     gray246     = ["#949494", 246, "gray"]
     gray247     = ["#9e9e9e", 247, "gray"]
     gray255     = ["#eeeeee", 255, "gray"]
+
+    # Same as conflictMarker
+    diff_add  = ["#2f7366", 10, "green"]
+    diff_chg = ["#344f69", 12, "blue"]
+    diff_del = ["#754a81", 5, "darkmagenta"]
+    diff_txt = ["#2f628e", 4, "darkblue"]
+
+    # Diag highlights
+    diag_err_bg = ["#2d202a", 1, "black"]
+    diag_err_fg = ["#db4b4b", 9, "red"]
+    diag_warn_bg = ["#192b38", 6, "black"]
+    diag_warn_fg = ["#0db9d7", 14, "cyan"]
 
     # Step 4: highlights
     #
@@ -227,15 +239,25 @@
         [ "NormalStatus",  gray235, gray ,"NONE"],
         [ "ROStatus",  yellow, gray235, "NONE"],
         [ "RootStatus",  gray235, gray, "NONE"],
-        [ "StatusLinterError",  red, gray235, "BOLD"],
+        [ "StatusLinterError",  diag_err_fg, gray235, "BOLD"],
 
         # ALE
         [ "ALEErrorSign",  "NONE", red, "NONE"],
         [ "ALEWarningSign",  "NONE", gray245, "NONE"],
 
+        # LSP
+        [ "DiagnosticSignError",  black, diag_err_fg, "NONE"],
+        [ "DiagnosticSignWarn",  black, diag_warn_fg, "NONE"],
+        [ "DiagnosticSignHint",  black, diag_warn_fg, "NONE"],
+        [ "DiagnosticSignInfo",  black, diag_warn_fg, "NONE"],
+        [ "DiagnosticError", diag_err_bg, diag_err_fg, "NONE" ],
+        [ "DiagnosticWarn", diag_warn_bg, diag_warn_fg, "NONE" ],
+        [ "DiagnosticInfo", diag_warn_bg, diag_warn_fg, "NONE" ],
+        [ "DiagnosticHint", diag_warn_bg, diag_warn_fg, "NONE" ],
+
         # FloatingWin
         [ "FloatBorder",  "NONE", white, "NONE"],
-        [ "NormalFloat",  gray235, gray255, "NONE"],
+        [ "NormalFloat",  gray235, "NONE", "NONE"],
 
         # IndentBlankLine
         [ "IndentBlanklineChar",  "NONE", gray237, "NONE"],
@@ -254,12 +276,18 @@
         [ "TelescopeSelection",  "NONE", darkblue, "BOLD"],
 
         # Signify
-        [ "SignifyLineAdd", "DiffAdd"],
-        [ "SignifySignAdd", "DiffAdd"],
-        [ "SignifySignChange", "DiffChange"],
-        [ "SignifySignDelete", "DiffDelete"],
+        [ "SignifyLineAdd",  "NONE", diff_add, "NONE"],
+        [ "SignifySignAdd", "NONE", diff_add, "NONE"],
+        [ "SignifySignChange",  "NONE", diff_chg, "NONE"],
+        [ "SignifySignDelete", "NONE", diff_del, "NONE"],
         [ "diffAdded", "DiffAdd"],
         [ "diffRemoved", "DiffDelete"],
+
+        # NvimTree
+        [ "NvimTreeGitDirty", "DiffAdd"],
+        [ "NvimTreeGitNew", "DiffAdd"],
+        [ "NvimTreeGitStaged", "DiffAdd"],
+        [ "NvimTreeRootFolder", "Comment"],
 
         # IlluminateWord
         [ "illuminatedWord", gray239, "NONE", "NONE"],
@@ -339,6 +367,7 @@
         [ "TSType", "Foreground"],
         [ "TSTypeBuiltin", "Foreground"],
         [ "TSVariable", "Foreground"],
+        [ "TSURI", "NONE", "NONE", "underline"],
         [ "TSVariableBuiltin", "Foreground"],
         [ "TScomment", "Doc"],
         [ "TreesitterContext", "NONE", "NONE", "reverse"],

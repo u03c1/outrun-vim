@@ -2,7 +2,7 @@
 " Author:      Raphael DB (https://github.com/u03c1)
 " Webpage:     https://github.com/u03c1/outrun-vim
 " Description: A dark theme, with some retrowave accent.
-" Last Change: 2021-11-18
+" Last Change: 2022-01-09
 
 hi clear
 
@@ -92,11 +92,19 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
     hi NormalStatus ctermbg=235 ctermfg=7 cterm=NONE guibg=#262626 guifg=#c0c0c0 gui=NONE
     hi ROStatus ctermbg=11 ctermfg=235 cterm=NONE guibg=#d8e6a1 guifg=#262626 gui=NONE
     hi RootStatus ctermbg=235 ctermfg=7 cterm=NONE guibg=#262626 guifg=#c0c0c0 gui=NONE
-    hi StatusLinterError ctermbg=1 ctermfg=235 cterm=BOLD guibg=#d98282 guifg=#262626 gui=BOLD
+    hi StatusLinterError ctermbg=9 ctermfg=235 cterm=BOLD guibg=#db4b4b guifg=#262626 gui=BOLD
     hi ALEErrorSign ctermbg=NONE ctermfg=1 cterm=NONE guibg=NONE guifg=#d98282 gui=NONE
     hi ALEWarningSign ctermbg=NONE ctermfg=245 cterm=NONE guibg=NONE guifg=#8a8a8a gui=NONE
+    hi DiagnosticSignError ctermbg=0 ctermfg=9 cterm=NONE guibg=#242A33 guifg=#db4b4b gui=NONE
+    hi DiagnosticSignWarn ctermbg=0 ctermfg=14 cterm=NONE guibg=#242A33 guifg=#0db9d7 gui=NONE
+    hi DiagnosticSignHint ctermbg=0 ctermfg=14 cterm=NONE guibg=#242A33 guifg=#0db9d7 gui=NONE
+    hi DiagnosticSignInfo ctermbg=0 ctermfg=14 cterm=NONE guibg=#242A33 guifg=#0db9d7 gui=NONE
+    hi DiagnosticError ctermbg=1 ctermfg=9 cterm=NONE guibg=#2d202a guifg=#db4b4b gui=NONE
+    hi DiagnosticWarn ctermbg=6 ctermfg=14 cterm=NONE guibg=#192b38 guifg=#0db9d7 gui=NONE
+    hi DiagnosticInfo ctermbg=6 ctermfg=14 cterm=NONE guibg=#192b38 guifg=#0db9d7 gui=NONE
+    hi DiagnosticHint ctermbg=6 ctermfg=14 cterm=NONE guibg=#192b38 guifg=#0db9d7 gui=NONE
     hi FloatBorder ctermbg=NONE ctermfg=15 cterm=NONE guibg=NONE guifg=#DADAEA gui=NONE
-    hi NormalFloat ctermbg=235 ctermfg=255 cterm=NONE guibg=#262626 guifg=#eeeeee gui=NONE
+    hi NormalFloat ctermbg=235 ctermfg=NONE cterm=NONE guibg=#262626 guifg=NONE gui=NONE
     hi IndentBlanklineChar ctermbg=NONE ctermfg=237 cterm=NONE guibg=NONE guifg=#3A3A3A gui=NONE
     hi IndentBlanklineContextChar ctermbg=NONE ctermfg=8 cterm=NONE guibg=NONE guifg=#666677 gui=NONE
     hi DocCommentINFO ctermbg=0 ctermfg=1 cterm=NONE guibg=#242A33 guifg=#d98282 gui=NONE
@@ -107,10 +115,15 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
     hi TelescopeNormal ctermbg=NONE ctermfg=15 cterm=NONE guibg=NONE guifg=#DADAEA gui=NONE
     hi TelescopePreviewBorder ctermbg=NONE ctermfg=4 cterm=NONE guibg=NONE guifg=#8ccff5 gui=NONE
     hi TelescopeSelection ctermbg=NONE ctermfg=4 cterm=BOLD guibg=NONE guifg=#8ccff5 gui=BOLD
+    hi SignifyLineAdd ctermbg=NONE ctermfg=10 cterm=NONE guibg=NONE guifg=#2f7366 gui=NONE
+    hi SignifySignAdd ctermbg=NONE ctermfg=10 cterm=NONE guibg=NONE guifg=#2f7366 gui=NONE
+    hi SignifySignChange ctermbg=NONE ctermfg=12 cterm=NONE guibg=NONE guifg=#344f69 gui=NONE
+    hi SignifySignDelete ctermbg=NONE ctermfg=5 cterm=NONE guibg=NONE guifg=#754a81 gui=NONE
     hi illuminatedWord ctermbg=239 ctermfg=NONE cterm=NONE guibg=#4E4E4E guifg=NONE gui=NONE
     hi phpNullValue ctermbg=NONE ctermfg=5 cterm=ITALIC guibg=NONE guifg=#C3C1FE gui=ITALIC
     hi htmlLink ctermbg=NONE ctermfg=9 cterm=underline guibg=NONE guifg=#d982b6 gui=underline
     hi htmlSpecialTagName ctermbg=NONE ctermfg=13 cterm=NONE guibg=NONE guifg=#d2d0fc gui=NONE
+    hi TSURI ctermbg=NONE ctermfg=NONE cterm=underline guibg=NONE guifg=NONE gui=underline
     hi TreesitterContext ctermbg=NONE ctermfg=NONE cterm=reverse guibg=NONE guifg=NONE gui=reverse
 
 elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
@@ -195,11 +208,19 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
     hi NormalStatus ctermbg=darkgray ctermfg=gray cterm=NONE
     hi ROStatus ctermbg=yellow ctermfg=darkgray cterm=NONE
     hi RootStatus ctermbg=darkgray ctermfg=gray cterm=NONE
-    hi StatusLinterError ctermbg=darkred ctermfg=darkgray cterm=BOLD
+    hi StatusLinterError ctermbg=red ctermfg=darkgray cterm=BOLD
     hi ALEErrorSign ctermbg=NONE ctermfg=darkred cterm=NONE
     hi ALEWarningSign ctermbg=NONE ctermfg=darkgray cterm=NONE
+    hi DiagnosticSignError ctermbg=black ctermfg=red cterm=NONE
+    hi DiagnosticSignWarn ctermbg=black ctermfg=cyan cterm=NONE
+    hi DiagnosticSignHint ctermbg=black ctermfg=cyan cterm=NONE
+    hi DiagnosticSignInfo ctermbg=black ctermfg=cyan cterm=NONE
+    hi DiagnosticError ctermbg=black ctermfg=red cterm=NONE
+    hi DiagnosticWarn ctermbg=black ctermfg=cyan cterm=NONE
+    hi DiagnosticInfo ctermbg=black ctermfg=cyan cterm=NONE
+    hi DiagnosticHint ctermbg=black ctermfg=cyan cterm=NONE
     hi FloatBorder ctermbg=NONE ctermfg=white cterm=NONE
-    hi NormalFloat ctermbg=darkgray ctermfg=gray cterm=NONE
+    hi NormalFloat ctermbg=darkgray ctermfg=NONE cterm=NONE
     hi IndentBlanklineChar ctermbg=NONE ctermfg=darkgray cterm=NONE
     hi IndentBlanklineContextChar ctermbg=NONE ctermfg=darkgray cterm=NONE
     hi DocCommentINFO ctermbg=black ctermfg=darkred cterm=NONE
@@ -210,10 +231,15 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
     hi TelescopeNormal ctermbg=NONE ctermfg=white cterm=NONE
     hi TelescopePreviewBorder ctermbg=NONE ctermfg=darkblue cterm=NONE
     hi TelescopeSelection ctermbg=NONE ctermfg=darkblue cterm=BOLD
+    hi SignifyLineAdd ctermbg=NONE ctermfg=green cterm=NONE
+    hi SignifySignAdd ctermbg=NONE ctermfg=green cterm=NONE
+    hi SignifySignChange ctermbg=NONE ctermfg=blue cterm=NONE
+    hi SignifySignDelete ctermbg=NONE ctermfg=darkmagenta cterm=NONE
     hi illuminatedWord ctermbg=darkgray ctermfg=NONE cterm=NONE
     hi phpNullValue ctermbg=NONE ctermfg=darkmagenta cterm=ITALIC
     hi htmlLink ctermbg=NONE ctermfg=red cterm=underline
     hi htmlSpecialTagName ctermbg=NONE ctermfg=magenta cterm=NONE
+    hi TSURI ctermbg=NONE ctermfg=NONE cterm=underline
     hi TreesitterContext ctermbg=NONE ctermfg=NONE cterm=reverse
 endif
 
@@ -225,12 +251,12 @@ hi link CursorIM Cursor
 hi link Terminal Normal
 hi link MatchwordCur MatchParen
 hi link Doc Comment
-hi link SignifyLineAdd DiffAdd
-hi link SignifySignAdd DiffAdd
-hi link SignifySignChange DiffChange
-hi link SignifySignDelete DiffDelete
 hi link diffAdded DiffAdd
 hi link diffRemoved DiffDelete
+hi link NvimTreeGitDirty DiffAdd
+hi link NvimTreeGitNew DiffAdd
+hi link NvimTreeGitStaged DiffAdd
+hi link NvimTreeRootFolder Comment
 hi link cConditional Conditional
 hi link cStatement showReturn
 hi link phpClasses Function
