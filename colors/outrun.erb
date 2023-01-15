@@ -61,15 +61,15 @@
     #
     # If your colors are defined correctly, the resulting colorscheme is guaranteed
     # to work in GVim (Windows/Linux), MacVim (MacOS), and any properly set up terminal emulator.
-    black       = ["#242A33", 0, "black"]
+    black       = ["#202630", 0, "black"]
     red         = ["#d98282", 1, "darkred"]
     darkgreen   = ["#9ed494", 2, "darkgreen"]
     orange      = ["#D9C8B3", 3, "darkyellow"]
     darkblue    = ["#8ccff5", 4, "darkblue"]
     darkmagenta = ["#C3C1FE", 5, "darkmagenta"]
-    darkcyan    = ["#63D8DB", 6, "darkcyan"]
+    darkcyan    = ["#81ADAD", 6, "darkcyan"]
     gray        = ["#c0c0c0", 7, "gray"]
-    darkgray    = ["#666677", 8, "darkgray"]
+    darkgray    = ["#2D3642", 8, "darkgray"]
     pink        = ["#d982b6", 9, "red"]
     green       = ["#b8dfb2", 10, "green"]
     yellow      = ["#d8e6a1", 11, "yellow"]
@@ -79,6 +79,7 @@
     white       = ["#DADAEA", 15, "white"]
 
     altblack    = ["#11263B", 0, "black"]
+    #diminactive = ["#3B414C", 0, "black"]
     ui_discret  = ["#414854", 239, "gray"]
 
     gray232     = ["#080808", 232, "darkgray"]
@@ -95,17 +96,20 @@
     gray247     = ["#9e9e9e", 247, "gray"]
     gray255     = ["#eeeeee", 255, "gray"]
 
-    # Same as conflictMarker
-    diff_add  = ["#2f7366", 10, "green"]
-    diff_chg = ["#344f69", 12, "blue"]
-    diff_del = ["#754a81", 5, "darkmagenta"]
-    diff_txt = ["#2f628e", 4, "darkblue"]
+    cm_diff_add  = ["#5A7A62", 10, "green"]
+    cm_diff_chg = ["#373d28", 12, "blue"]
+    cm_diff_del = ["#83575F", 5, "darkmagenta"]
+    cm_diff_txt = ["#64743B", 4, "darkblue"]
 
     # Diag highlights
     diag_err_bg = ["#2d202a", 1, "black"]
     diag_err_fg = ["#db4b4b", 9, "red"]
     diag_warn_bg = ["#192b38", 6, "black"]
     diag_warn_fg = ["#0db9d7", 14, "cyan"]
+
+    markerIncoming =  ["#344f69" , 12, "blue"]
+    markerCurrent =  ["#2e5049", 10, "green"]
+    markerAncestor =  ["#754a81", 5, "darkmagenta"]
 
     # Step 4: highlights
     #
@@ -146,9 +150,9 @@
     # are good reads, by the way.
     highlights = [
         [ "Normal", black, white, "NONE" ],
+        #[ "NormalNC", diminactive, gray255, "NONE" ],
         [ "NonText", "NONE", gray245, "NONE" ],
         [ "EndOfBuffer","NonText" ],
-        #[ "Comment", "NONE", gray247, "italic" ],
         [ "Comment", "NONE", orange, "italic" ],
         [ "Constant", "NONE", green, "NONE" ],
         [ "Error", black, red, "NONE" ],
@@ -166,17 +170,17 @@
         [ "StatusLineNC", gray235, gray, "NONE" ],
         [ "StatusLineTerm", "StatusLine" ],
         [ "StatusLineTermNC", "StatusLineNC" ],
-        [ "VertSplit", black, gray238, "NONE" ],
+        [ "VertSplit", black, darkgray, "NONE" ],
         [ "TabLine", black, white, "NONE" ],
         [ "TabLineFill", black, white, "NONE" ],
         [ "TabLineSel", black, white, "NONE" ],
         [ "Title", black, white, "NONE" ],
-        [ "CursorLine", gray236, "NONE", "NONE" ],
-        [ "LineNr", "NONE", gray239, "NONE" ],
-        [ "CursorLineNr", "NONE", gray245, "NONE" ],
+        [ "CursorLine", darkgray, "NONE", "NONE" ],
+        [ "LineNr", "NONE", ui_discret, "NONE" ],
+        [ "CursorLineNr", "NONE", gray247, "NONE" ],
         [ "helpLeadBlank", black, white, "NONE" ],
         [ "helpNormal", black, white, "NONE" ],
-        [ "Visual", blue, gray232, "NONE" ],
+        [ "Visual", ui_discret, "NONE", "NONE" ],
         [ "VisualNOS", red, white, "NONE" ],
         [ "Pmenu", gray238, white, "NONE" ],
         [ "PmenuSbar", black, white, "NONE" ],
@@ -186,10 +190,11 @@
         [ "Folded", black, white, "NONE" ],
         [ "WildMenu", black, white, "NONE" ],
         [ "SpecialKey", black, white, "NONE" ],
-        [ "DiffAdd", "NONE", green, "NONE" ],
-        [ "DiffChange", "NONE", orange, "NONE" ],
-        [ "DiffDelete", "NONE", red, "NONE" ],
-        [ "DiffText", "NONE", blue, "NONE" ],
+
+        [ "DiffAdd", cm_diff_add, gray255, "NONE" ],
+        [ "DiffChange", cm_diff_chg, gray255, "NONE" ],
+        [ "DiffDelete", cm_diff_del, gray255, "NONE" ],
+        [ "DiffText", cm_diff_txt, gray255, "NONE" ],
         [ "IncSearch", red, white, "NONE" ],
         [ "Search", green, black, "NONE" ],
         [ "Directory", black, darkblue, "NONE" ],
@@ -215,6 +220,7 @@
         [ "ToolbarButton", black, white, "NONE" ],
         [ "debugPC", black, white, "NONE" ],
         [ "debugBreakpoint", red, white, "NONE" ],
+        [ "keyword", "Boolean" ],
 
         # Misc
         [ "Foreground", "NONE", white, "NONE" ],
@@ -232,18 +238,21 @@
         [ "Tags", "NONE", white, "NONE" ],
         [ "showReturn", "NONE", pink, "NONE" ],
 
-        # Custom StatusLine
-        [ "BranchStatus",  gray235, pink ,"NONE"],
-        [ "FileStatus",  gray235, pink, "NONE"],
-        [ "InactiveStatus",  gray236, gray245 ,"NONE"],
-        [ "NormalStatus",  gray235, gray ,"NONE"],
+        [ "BranchStatus",  gray235, gray ,"NONE"],
+        [ "FileStatus", gray235, pink ,"NONE"],
+        [ "InactiveStatus", "BranchStatus"],
+        [ "NormalStatus", "BranchStatus"],
         [ "ROStatus",  yellow, gray235, "NONE"],
-        [ "RootStatus",  gray235, gray, "NONE"],
+        [ "RootStatus",  "BranchStatus"],
         [ "StatusLinterError",  diag_err_fg, gray235, "BOLD"],
 
         # ALE
         [ "ALEErrorSign",  "NONE", red, "NONE"],
         [ "ALEWarningSign",  "NONE", gray245, "NONE"],
+
+        ["MarkerIncoming", markerIncoming, "NONE", "NONE"],
+        ["MarkerCurrent", markerCurrent, "NONE", "NONE"],
+        ["MarkerAncestor", markerAncestor, "NONE", "NONE"],
 
         # LSP
         [ "DiagnosticSignError",  black, diag_err_fg, "NONE"],
@@ -276,21 +285,33 @@
         [ "TelescopeSelection",  "NONE", darkblue, "BOLD"],
 
         # Signify
-        [ "SignifyLineAdd",  "NONE", diff_add, "NONE"],
-        [ "SignifySignAdd", "NONE", diff_add, "NONE"],
-        [ "SignifySignChange",  "NONE", diff_chg, "NONE"],
-        [ "SignifySignDelete", "NONE", diff_del, "NONE"],
+        [ "SignifyLineAdd",  "NONE", cm_diff_add, "NONE"],
+        [ "SignifySignAdd", "NONE", cm_diff_add, "NONE"],
+        [ "SignifySignChange",  "NONE", cm_diff_chg, "NONE"],
+        [ "SignifySignDelete", "NONE", cm_diff_del, "NONE"],
         [ "diffAdded", "DiffAdd"],
         [ "diffRemoved", "DiffDelete"],
+        
+        # GitSigns
+        [ "GitSignsAddLn", "NONE", green, "NONE" ],
+        [ "GitSignsChangeLn","NONE", orange, "NONE" ],
+        [ "GitSignsDeleteLn","NONE", red, "NONE" ],
+        [ "GitSignsAdd", "NONE", cm_diff_add, "NONE" ],
+        [ "GitSignsChange","NONE", cm_diff_txt, "NONE" ],
+        [ "GitSignsDelete","NONE", cm_diff_del, "NONE" ],
 
         # NvimTree
-        [ "NvimTreeGitDirty", "DiffAdd"],
-        [ "NvimTreeGitNew", "DiffAdd"],
-        [ "NvimTreeGitStaged", "DiffAdd"],
+        [ "NvimTreeGitDirty", "NONE", magenta, "bold"],
+        [ "NvimTreeGitNew", "NONE", green, "bold"],
+        [ "NvimTreeGitRenamed", "NONE", yellow, "italic"],
+        [ "NvimTreeGitDeleted", "NONE", "red", "bold"],
         [ "NvimTreeRootFolder", "Comment"],
 
         # IlluminateWord
         [ "illuminatedWord", gray239, "NONE", "NONE"],
+        [ "LspReferenceText", "illuminatedWord" ],
+        [ "LspReferenceWrite", "illuminatedWord" ],
+        [ "LspReferenceRead", "illuminatedWord" ],
 
         # C
         [ "cConditional", "Conditional"],
@@ -317,7 +338,7 @@
 
         # HTML
         [ "htmlEndTag", "Tags"],
-        [ "htmlLink", "NONE", pink, "underline" ],
+        [ "htmlLink", "NONE", pink, "NONE" ],
         [ "htmlSpecialTagName",  "NONE", magenta, "NONE"],
         [ "htmlString", "String"],
         [ "htmlTag", "Tags"],
@@ -336,7 +357,8 @@
         [ "pythonConditional", "Conditional"],
         [ "pythonException", "showReturn"],
         [ "pythonStatement", "Structure"],
-
+        [ "pythonDocString ", "Doc"],
+        
         # JS
         [ "javascriptConditional", "Conditional"],
         [ "javascriptNumber", "Number"],
@@ -344,6 +366,7 @@
         [ "jsFunction", "function"],
 
         # TREESITTER
+
         [ "TSBoolean", "Boolean"],
         [ "TSConditional", "Conditional"],
         [ "TSConstBuiltin", "Builtin"],
@@ -364,14 +387,47 @@
         [ "TSProperty", "Foreground"],
         [ "TSRepeat", "Repeat"],
         [ "TSString", "string"],
-        [ "TSType", "Foreground"],
-        [ "TSTypeBuiltin", "Foreground"],
+        [ "TSType", "Boolean"],
+        [ "TSTypeBuiltin", "Constant"],
         [ "TSVariable", "Foreground"],
-        [ "TSURI", "NONE", "NONE", "underline"],
+        [ "TSURI", "NONE", "NONE", "NONE"],
         [ "TSVariableBuiltin", "Foreground"],
         [ "TScomment", "Doc"],
         [ "TreesitterContext", "NONE", "NONE", "reverse"],
         [ "commentTSConstant", "Doc"],
+        [ "TSAttribute", "NONE", darkcyan, "none" ],
+        [ "TSPunctBracket", "NONE", gray245, "NONE" ],
+
+        [ "@boolean", "Boolean"],
+        [ "@conditional", "Conditional"],
+        [ "@constant.builtin", "Builtin"],
+        [ "@constant.macro", "Foreground"],
+        [ "@constant", "Constant"],
+        [ "@constructor", "Foreground"],
+        [ "@exception", "showReturn"],
+        [ "@function.builtin", "Foreground"],
+        [ "@function", "Function"],
+        [ "@include", "Foreground"],
+        [ "@keyword", "Foreground"],
+        [ "@keyword.function", "Foreground"],
+        [ "@eyword.operator", "Repeat"],
+        [ "@keyword.return", "showReturn"],
+        [ "@method", "Foreground"],
+        [ "@operator", "Foreground"],
+        [ "@parameter", "Foreground"],
+        [ "@property", "Foreground"],
+        [ "@repeat", "Repeat"],
+        [ "@string", "string"],
+        [ "@type", "Boolean"],
+        [ "@type.builtin", "Constant"],
+        [ "@variable", "Foreground"],
+        [ "@URI", "NONE", "NONE", "NONE"],
+        [ "@variable.builtin", "Foreground"],
+        [ "@comment", "Doc"],
+        [ "TreesitterContext", "NONE", "NONE", "reverse"],
+        [ "commentTSConstant", "Doc"],
+        [ "@attribute", "NONE", darkcyan, "none" ],
+        [ "@punctuation.bracket", "NONE", gray245, "NONE" ],
     ]
 
     # Define the color palette used by :terminal when in GUI Vim
@@ -543,6 +599,11 @@ hi link <%= link[0] %> <%= link[1] %>
 <% if terminal_ansi_colors.length == 16 -%>
 <%= '' %>
 let g:terminal_ansi_colors = [ <% for color in terminal_ansi_colors -%>'<%= color[0] %>', <% end -%>]
+<% end -%>
+
+" Fix neovim terminal.
+<% for color,index in terminal_ansi_colors.each_with_index -%>
+let g:terminal_color_<%= index %> = '<%= color[0] %>'
 <% end -%>
 
 " Generated with RNB (https://github.com/romainl/vim-rnb)
